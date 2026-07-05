@@ -1,0 +1,14 @@
+services:
+  nextcloud:
+    image: nextcloud:apache
+    container_name: georgeos_nextcloud
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - nextcloud_data:/var/www/html
+    environment:
+      - SQLITE_DATABASE=nextcloud
+
+volumes:
+  nextcloud_data:
